@@ -64,3 +64,7 @@ header {
 .contact-card:hover h3 {
   color: white;
 }
+
+.hidden{
+  display: none;
+}
