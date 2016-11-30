@@ -24,15 +24,6 @@ const ContactView = Backbone.View.extend({
     console.log(this.model.toJSON());
     return this;
   }
-  // closeIfOutOfFocus: function(event){
-  //   console.log("WENT HERE");
-  //   var modalAndContents = $('#contact-details');
-  //
-  //   if (!modalAndContents.is(e.target) && modalAndContents.has(e.target).length == 0)
-  //   {
-  //     modalAndContents.hide();
-  //   }
-  // }
 });
 
 export default ContactView;

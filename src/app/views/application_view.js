@@ -38,6 +38,7 @@ const ApplicationView = Backbone.View.extend({
   },
   closeModal: function(event){
     console.log("TRIGGERED");
+    // From StackOverflow, to avoid closing the modal if the modal is what's clicked on: http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
     if (!$('#contact-details').hasClass('hidden') && !$('#contact-details').is(event.target) && $('#contact-details').has(event.target).length == 0){
       $('#contact-details').addClass('hidden');
     }

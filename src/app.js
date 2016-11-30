@@ -7,7 +7,9 @@ import $ from 'jquery';
 
 
 
-var contactData = [{name: "Satine the Cat", phone: "425 785 9393", email: "satine@himalayan.com"}];
+var contactData = [{name: "Satine the Cat", phone: "425 785 9393", email: "satine@himalayan.com"},
+                    {name: "Bob the Pug", phone: "206 879 0202", email: "bob@pugness.com"},
+                    {name: "Johnny the Jerboa", phone: "101 220 0202", email: "johnny@jerboa.com"}];
 
 $(document).ready(function(){
 
