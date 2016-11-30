@@ -14,17 +14,8 @@ const RolodexView = Backbone.View.extend({
     for (var i = 0; i < this.model.length; i++){
       this.addContact(this.model.models[i]);
     }
-    this.formInput = {
-      name: this.$('.contact-form input[name="name"]'),
-      email: this.$('.contact-form input[name="email"]'),
-      phone: this.$('.contact-form input[name="phone"]')
-    }
     this.listenTo(this.model, "update", this.render);
     this.listenTo(this.model, "add", this.addContact);
-  },
-  events: {
-    'click .btn-save': 'createNewContact',
-    'click .btn-cancel': 'clearContactForm'
   },
   render: function(){
     this.listHolderElement.empty();
@@ -37,15 +28,8 @@ const RolodexView = Backbone.View.extend({
     var currentContact = new ContactView({model: contact, template: this.contactTemplate, detailed: this.detailedTemplate});
     this.listOfContacts.push(currentContact);
   },
-  createNewContact: function(){
-    var contact = new Contact({name: this.formInput.name.val(), email: this.formInput.email.val(), phone: this.formInput.phone.val()});
+  createNewContact: function(contact){
     this.model.add(contact);
-    this.clearContactForm();
-  },
-  clearContactForm: function(){
-    this.formInput.name.val('');
-    this.formInput.email.val('');
-    this.formInput.phone.val('');
   }
 });
 

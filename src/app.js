@@ -11,16 +11,13 @@ var contactData = [{name: "Satine the Cat", phone: "425 785 9393", email: "satin
 
 $(document).ready(function(){
 
-  var application = new Application();
+  var application = new Application({rolodex: contactData});
 
   var appView = new ApplicationView({
-    el: '#application',
+    el: 'html',
     model: application
   });
 
-  var contactCollection = new Rolodex(contactData);
-
-  var rolodexView = new RolodexView({model: contactCollection, el: $('#application')});
-  rolodexView.render();
+  appView.render();
 
 })
