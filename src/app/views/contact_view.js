@@ -21,7 +21,7 @@ const ContactView = Backbone.View.extend({
     $('#contact-details').empty();
     $('#contact-details').append(this.detailedTemplate({name: this.model.get('name'), email: this.model.get('email'), phone: this.model.get('phone')}));
     this.render();
-    console.log(this.model.toJSON());
+    // console.log(this.model.toJSON());
     return this;
   }
 });
