@@ -11,18 +11,22 @@ const ContactView = Backbone.View.extend({
   render: function(){
     this.delegateEvents();
     this.$el.html(this.template({name: this.model.get("name")}));
+    $('#contact-details').empty();
+    $('#contact-details').append(this.detailedTemplate({name: this.model.get('name'), email: this.model.get('email'), phone: this.model.get('phone')}));
     return this;
   },
   events: {
-    'click .contact-card': 'displayDetails'
+    'click .contact-card': 'displayDetails',
+    'click .contact-details.edit-me': 'displayEditForm'
   },
   displayDetails: function(){
+    this.delegateEvents();
     $('#contact-details').removeClass('hidden');
-    $('#contact-details').empty();
-    $('#contact-details').append(this.detailedTemplate({name: this.model.get('name'), email: this.model.get('email'), phone: this.model.get('phone')}));
     this.render();
-    console.log(this.model.toJSON());
-    return this;
+    // console.log(this.model.toJSON());
+  },
+  displayEditForm: function(){
+    console.log("Here is the edit form");
   }
 });
 
