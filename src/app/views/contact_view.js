@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
+import DetailedView from 'app/views/detailed_view';
 
 const ContactView = Backbone.View.extend({
   initialize: function(options){
@@ -14,15 +15,13 @@ const ContactView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click .contact-card': 'displayDetails'
+    'click' : 'displayDetails'
   },
-  displayDetails: function(){
-    $('#contact-details').removeClass('hidden');
-    $('#contact-details').empty();
-    $('#contact-details').append(this.detailedTemplate({name: this.model.get('name'), email: this.model.get('email'), phone: this.model.get('phone')}));
-    this.render();
+  displayDetails: function(event){
+    console.log ("WENT HERE!");
+    this.trigger('contact-view-clicked', this.model);
+    event.stopPropagation();
     // console.log(this.model.toJSON());
-    return this;
   }
 });
 

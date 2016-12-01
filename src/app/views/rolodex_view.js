@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Contact from 'app/models/contact';
 import ContactView from 'app/views/contact_view';
 import Rolodex from 'app/collections/rolodex';
+import DetailedView from 'app/views/detailed_view';
 
 const RolodexView = Backbone.View.extend({
   initialize: function(options){
@@ -16,6 +17,7 @@ const RolodexView = Backbone.View.extend({
     }
     this.listenTo(this.model, "update", this.render);
     this.listenTo(this.model, "add", this.addContact);
+
   },
   render: function(){
     this.listHolderElement.empty();
@@ -27,9 +29,20 @@ const RolodexView = Backbone.View.extend({
   addContact: function(contact){
     var currentContact = new ContactView({model: contact, template: this.contactTemplate, detailed: this.detailedTemplate});
     this.listOfContacts.push(currentContact);
+    this.listenTo(currentContact, 'contact-view-clicked', this.displayContactDetails);
   },
   createNewContact: function(contact){
     this.model.add(contact);
+  },
+  displayContactDetails: function(contactModel){
+    console.log("In Rolodex displayContactDetails");
+    // console.log(contactModel);
+    this.myContactView = new DetailedView({model: contactModel, template: this.detailedTemplate, el: $('#contact-details')});
+    this.myContactView.render();
+    this.myContactView.show();
+  },
+  hideContactDetails: function(){
+    this.myContactView.hide();
   }
 });
 
