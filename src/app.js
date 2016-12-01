@@ -16,7 +16,7 @@ $(document).ready(function(){
   var application = new Application({rolodex: contactData});
 
   var appView = new ApplicationView({
-    el: 'html',
+    el: 'body',
     model: application
   });
 
