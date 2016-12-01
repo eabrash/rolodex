@@ -29,7 +29,7 @@ const DetailedView = Backbone.View.extend({
     // console.log(this.model.toJSON());
   },
   displayEditForm: function(){
-    console.log("Here is the edit form");
+    this.trigger('edit-contact', this.model);
   },
   hide: function(){
     this.$el.addClass('hidden');

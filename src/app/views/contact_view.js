@@ -18,7 +18,6 @@ const ContactView = Backbone.View.extend({
     'click' : 'displayDetails'
   },
   displayDetails: function(event){
-    console.log ("WENT HERE!");
     this.trigger('contact-view-clicked', this.model);
     event.stopPropagation();
     // console.log(this.model.toJSON());
