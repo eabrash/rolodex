@@ -50,7 +50,9 @@ const ApplicationView = Backbone.View.extend({
   closeModal: function(event){
     console.log("TRIGGERED");
     console.log(event);
-    this.rolodexView.hideContactDetails();
+    if (this.editableModel != undefined){
+      this.rolodexView.hideContactDetails();
+    }
   },
   editContact: function(contactModel){
     console.log("Arrived at ApplicationView editContact");
