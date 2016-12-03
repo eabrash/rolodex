@@ -6,14 +6,14 @@ import Contact from 'app/models/contact';
 const DetailedView = Backbone.View.extend({
   initialize: function(options){
     this.template = options.template;
-    console.log("Inside DetailedView initialize");
+    // console.log("Inside DetailedView initialize");
     // console.log(this.model);
     // console.log(this.$el);
     // this.on('click', this.closeIfOutOfFocus, this.$el.parent);
   },
   render: function(){
     // this.delegateEvents();
-    console.log("In detailed view render");
+    // console.log("In detailed view render");
     var result = this.template({name: this.model.get("name"), email: this.model.get("email"), phone: this.model.get("phone")});
     var html = this.$el.html(result);
     // console.log(result);
@@ -35,7 +35,7 @@ const DetailedView = Backbone.View.extend({
     this.$el.addClass('hidden');
   },
   doNothing: function(e){
-    console.log("In doNothing");
+    // console.log("In doNothing");
     e.stopPropagation();
   }
 });
