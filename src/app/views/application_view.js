@@ -53,7 +53,7 @@ const ApplicationView = Backbone.View.extend({
     this.rolodexView.hideContactDetails();
   },
   editContact: function(contactModel){
-    console.log("Arrived at ApplicationView editContact");
+    // console.log("Arrived at ApplicationView editContact");
     this.formInput.name.val(contactModel.get("name"));
     this.formInput.email.val(contactModel.get("email"));
     this.formInput.phone.val(contactModel.get("phone"));
