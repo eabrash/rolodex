@@ -48,8 +48,8 @@ const ApplicationView = Backbone.View.extend({
     this.editMode = false;
   },
   closeModal: function(event){
-    console.log("TRIGGERED");
-    console.log(event);
+    // console.log("TRIGGERED");
+    // console.log(event);
     this.rolodexView.hideContactDetails();
   },
   editContact: function(contactModel){

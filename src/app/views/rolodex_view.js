@@ -34,7 +34,7 @@ const RolodexView = Backbone.View.extend({
     this.model.add(contact);
   },
   displayContactDetails: function(contactModel){
-    console.log("In Rolodex displayContactDetails");
+    // console.log("In Rolodex displayContactDetails");
     // console.log(contactModel);
     this.myContactView = new DetailedView({model: contactModel, template: this.detailedTemplate, el: $('#contact-details')});
     this.myContactView.render();
@@ -42,7 +42,9 @@ const RolodexView = Backbone.View.extend({
     this.listenTo(this.myContactView, 'edit-contact', this.editContact);
   },
   hideContactDetails: function(){
-    this.myContactView.hide();
+    if (this.myContactView != null){
+      this.myContactView.hide();
+    }
   },
   editContact: function(contactModel){
     this.trigger('edit-contact', contactModel);
